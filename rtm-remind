@@ -10,11 +10,11 @@ import subprocess
 import time
 
 config = ConfigParser.ConfigParser()
-config.read('rtm.cfg')
+config.read('%s/rtm.cfg' % path.abspath(path.dirname(__file__)))
 
 user = config.get('Security', 'username')
 passwd = config.get('Security', 'passwd')
- 
+
 if path.exists('/usr/local/bin/growlnotify'):
    args = [ '/usr/local/bin/growlnotify', "-t", "To Do Today", "-m" ]
 elif path.exists('/usr/bin/notify-send'):
